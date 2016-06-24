@@ -1,0 +1,73 @@
+body {
+	background: #fdfdfd;
+}
+
+a,
+a:active,
+a:visited {
+  color: #bD2828;
+}
+
+a:hover {
+  color: #841010;
+}
+
+.color-grey {
+	color: #aaa;
+}
+
+.header {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+	background: #fff;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+
+.title-small {
+  font-size: 0.5em;
+  color: #999;
+  display: block;
+	line-height: 1.3em;
+}
+
+.content {
+	position: relative;
+	margin: 0 auto;
+	padding: 20px;
+	max-width: 840px;
+}
+
+.examples {
+	text-align: center;
+}
+
+.example {
+	margin: 20px auto;
+}
+
+@media (max-width: 600px) {
+  .mk-sektor {
+    display: none;
+  }
+}
+
+@media (min-width: 650px) {
+  .examples {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+/* Sektor stuff */
+
+.Sektor {
+  width: 200px;
+  height: 200px;
+	margin-bottom: 10px;
+}

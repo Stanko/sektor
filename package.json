@@ -1,0 +1,32 @@
+{
+  "name": "sektor",
+  "version": "1.0.0",
+  "description": "Library for making and animating SVG circle sectors",
+  "main": "js/sektor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./node_modules/babel-cli/bin/babel.js js/sektor.es6.js --out-file js/sektor.js",
+    "watch": "node ./node_modules/babel-cli/bin/babel.js --watch js/sektor.es6.js --out-file js/sektor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stanko/sektor.git"
+  },
+  "keywords": [
+    "js",
+    "svg",
+    "circle",
+    "sector",
+    "sektor"
+  ],
+  "author": "Stanko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stanko/sektor/issues"
+  },
+  "homepage": "https://github.com/Stanko/sektor#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}

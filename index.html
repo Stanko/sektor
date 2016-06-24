@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+
+	<title>Sektor</title>
+
+	<link rel="stylesheet" href="https://stanko.github.io/skyblue/css/skyblue.css">
+	<link rel="stylesheet" href="demo/demo.css">
+</head>
+
+<body>
+	<div class="header">
+		<div class="content">
+			<a href="https://github.com/Stanko/sektor" class="padding-right-20">GitHub</a>
+			<a href="https://github.com/Stanko/sektor/archive/master.zip">Download</a>
+		</div>
+	</div>
+
+  <div class='content margin-y-40'>
+    <div class='title'>
+			<img src='img/sektor.gif' class='margin-right-30 mk-sektor' />
+			<h1 class='margin-0'>Sektor <span class='title-small'>Library for making and animating SVG circle sectors</span></h1>
+		</div>
+
+		<div class='examples'>
+
+			<div class='example'>
+		    <div class='example-one'></div>
+				Animate to:<br>
+				<button class='btn btn-sm animate-one' data-angle='0'>0</button>
+				<button class='btn btn-sm animate-one' data-angle='100'>100</button>
+				<button class='btn btn-sm animate-one' data-angle='200'>200</button>
+				<button class='btn btn-sm animate-one' data-angle='300'>300</button>
+				<button class='btn btn-sm animate-one' data-angle='360'>360</button>
+			</div>
+
+			<div class='example'>
+		    <div class='example-two'></div>
+				Animate to:<br>
+				<button class='btn btn-sm animate-two' data-angle='0'>0</button>
+				<button class='btn btn-sm animate-two' data-angle='100'>100</button>
+				<button class='btn btn-sm animate-two' data-angle='200'>200</button>
+				<button class='btn btn-sm animate-two' data-angle='300'>300</button>
+				<button class='btn btn-sm animate-two' data-angle='360'>360</button>
+			</div>
+		</div>
+  </div>
+
+  <script src='js/sektor.js'></script>
+  <script>
+    var sektor1 = new Sektor('.example-one', {
+      angle: 135,
+			sectorColor: '#759',
+			circleColor: '#e5e8ea'
+    });
+
+		var sektor2 = new Sektor('.example-two', {
+			size: 200,
+			stroke: 20,
+			arc: true,
+			angle: 310,
+			sectorColor: '#345',
+			fillCircle: false
+		});
+
+		document.querySelectorAll('.animate-one').forEach(function(element) {
+			element.addEventListener('click', function() {
+				sektor1.animateTo(parseInt(element.getAttribute('data-angle'), 10), 500);
+			});
+		})
+
+		document.querySelectorAll('.animate-two').forEach(function(element) {
+			element.addEventListener('click', function() {
+				sektor2.animateTo(parseInt(element.getAttribute('data-angle'), 10), 1000);
+			});
+		})
+
+
+  </script>
+
+</body>
+</html>
