@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 function Sektor(selector, options) {
   this.element = document.querySelector(selector);
 
@@ -14,7 +16,7 @@ function Sektor(selector, options) {
   };
 
   // Merge options with default ones
-  options = Object.assign(defaultOptions, options);
+  options = _extends(defaultOptions, options);
 
   // Reset stroke to 0 if drawing full sector
   options.stroke = options.arc ? options.stroke : 0;
