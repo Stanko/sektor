@@ -5,7 +5,8 @@ body {
 
 a,
 a:active,
-a:visited {
+a:visited,
+a:focus {
   color: #bD2828;
 }
 
