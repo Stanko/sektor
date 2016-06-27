@@ -25,27 +25,119 @@
 			<h1 class='margin-0'>Sektor <span class='title-small'>Library for making and animating SVG circle sectors</span></h1>
 		</div>
 
-		<div class='examples'>
+		<p>
+			Sektor* is a plain JavaScript library that generated SVG with background circle, and circle sector.
+			Sector can be animated. Requires SVG and <code>requestAnimationFrame</code> support (which means modern browsers and IE10+).
+		</p>
 
+		<p>
+			<small>* Sektor is a little play with words, <a href="https://en.wikipedia.org/wiki/Sektor">robot in the title</a>
+			is the MK character called Sektor</small>
+		</p>
+
+		<div class='examples'>
 			<div class='example'>
 		    <div class='example-one'></div>
-				Animate to:<br>
-				<button class='btn btn-sm animate-one' data-angle='0'>0</button>
-				<button class='btn btn-sm animate-one' data-angle='100'>100</button>
-				<button class='btn btn-sm animate-one' data-angle='200'>200</button>
-				<button class='btn btn-sm animate-one' data-angle='300'>300</button>
-				<button class='btn btn-sm animate-one' data-angle='360'>360</button>
+				<p>Animate to:</p>
+				<button class='btn btn-sm btn-light animate-one' data-angle='0'>0</button>
+				<button class='btn btn-sm btn-light animate-one' data-angle='100'>100</button>
+				<button class='btn btn-sm btn-light animate-one' data-angle='200'>200</button>
+				<button class='btn btn-sm btn-light animate-one' data-angle='300'>300</button>
+				<button class='btn btn-sm btn-light animate-one' data-angle='360'>360</button>
 			</div>
 
 			<div class='example'>
 		    <div class='example-two'></div>
-				Animate to:<br>
-				<button class='btn btn-sm animate-two' data-angle='0'>0</button>
-				<button class='btn btn-sm animate-two' data-angle='100'>100</button>
-				<button class='btn btn-sm animate-two' data-angle='200'>200</button>
-				<button class='btn btn-sm animate-two' data-angle='300'>300</button>
-				<button class='btn btn-sm animate-two' data-angle='360'>360</button>
+				<p>Animate to:</p>
+				<button class='btn btn-sm btn-light animate-two' data-angle='0'>0</button>
+				<button class='btn btn-sm btn-light animate-two' data-angle='100'>100</button>
+				<button class='btn btn-sm btn-light animate-two' data-angle='200'>200</button>
+				<button class='btn btn-sm btn-light animate-two' data-angle='300'>300</button>
+				<button class='btn btn-sm btn-light animate-two' data-angle='360'>360</button>
 			</div>
+		</div>
+
+		<div>
+			<h3>Usage and API</h3>
+			<p>
+				Include the <code>sektor.js</code> file. Library is originally written in ES6 and transpiled using Babel.
+				Source can be found in the <code>js/sektor.es6.js</code>.
+			</p>
+
+			<p>
+				To build it yourself, you'll to run <code>npm install</code> first.
+				Two tasks are available:
+			</p>
+			<pre>
+npm run watch <span class="color-grey">// For development, to watch and transpile lib on the fly</span>
+npm run build <span class="color-grey">// Build library once</span>
+</pre>
+
+			<p>
+				You can style it using CSS. Viewbox is added, but it is advised to add CSS width and height to.
+				Classes added to the SVG are:
+			</p>
+<pre>
+.Sektor <span class="color-grey">// SVG itself</span>
+
+.Sektor-sector <span class="color-grey">// Sector</span>
+
+.Sektor-circle <span class="color-grey">// Background circle</span>
+
+<span class="color-grey">// Use "fill" for background, and "stroke" for border</span>
+</pre>
+
+
+			<p>
+				Released under <a href="https://github.com/Stanko/sektor/blob/gh-pages/LICENSE">MIT licence</a>.
+			</p>
+			<h4>Minimal setup</h4>
+
+<pre>
+var sektor = new <span class="color-success">Sektor</span>('.sektor', {
+  angle: 30
+});
+</pre>
+
+			<h4>Full options</h4>
+
+<pre>
+var sektor = new <span class="color-success">Sektor</span>('.sektor', {
+  size: 200,
+  stroke: 20,
+  arc: true,
+  angle: 310,
+  sectorColor: '#bD2828',
+  circleColor: '#DDD',
+  fillCircle: false
+});
+</pre>
+
+			<h3>Default options</h3>
+<pre>
+<span class="color-main">size</span>: 100 <span class="color-grey">// width and height of the circle (viewbox values)</span>
+<span class="color-main">arc</span>: false <span class="color-grey">// should only outline be rendered (instead of filled sector)</span>
+<span class="color-main">stroke</span>: 10 <span class="color-grey">// stroke width (applied only if arc is set to true)</span>
+<span class="color-main">angle</span>: 225 <span class="color-grey">// angle of the sector</span>
+<span class="color-main">sectorColor</span>: '#789' <span class="color-grey">// sector fill</span>
+<span class="color-main">circleColor</span>: '#DDD' <span class="color-grey">// background circle fill (set to 'none' if you want transparent one)</span>
+<span class="color-main">fillCircle</span>: true <span class="color-grey">// should circle be filled (applied only if arc is set to true)</span>
+</pre>
+
+<h3>Methods</h3>
+<pre>
+<span class="color-grey">// Changes angle of the sector/arc (no animation)
+// Params:
+// angle - in degrees (0-360)</span>
+sektor.<span class="color-success">changeAngle</span>(320);
+
+<span class="color-grey">// Animates change of the sector/arc to given angle
+// Params:
+// angle - in degrees (0-360)
+// time - in ms, optional (default 500ms)</span>
+sektor.<span class="color-success">animateTo</span>(230, 700);
+</pre>
+
 		</div>
   </div>
 
@@ -53,7 +145,7 @@
   <script>
     var sektor1 = new Sektor('.example-one', {
       angle: 135,
-			sectorColor: '#759',
+			sectorColor: '#bD2828',
 			circleColor: '#e5e8ea'
     });
 
@@ -62,7 +154,7 @@
 			stroke: 20,
 			arc: true,
 			angle: 310,
-			sectorColor: '#345',
+			sectorColor: '#bD2828',
 			fillCircle: false
 		});
 

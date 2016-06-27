@@ -1,20 +1,7 @@
 # Sektor
 
-JavaScript library for creating SVG circle sectors and arcs.
+JavaScript library for creating and animating SVG circle sectors and arcs.
 
-[DEMO](http://stanko.github.io/sektor)
+[![](https://stanko.github.io/sektor/img/sektor.png)](http://stanko.github.io/sektor)
 
-Real docs coming soon.
-
-### Default options
-```
-{
-  size: 100,
-  stroke: 10,
-  arc: false,
-  angle: 225,
-  sectorColor: '#789',
-  circleColor: '#DDD',
-  fillCircle: true
-}
-```
+[DEMO and DOCUMENTATION](http://stanko.github.io/sektor)
