@@ -23,6 +23,8 @@ function Sektor(selector, options) {
 
   this.options = options;
 
+  this.checkAngle();
+
   const svg =
     `<svg class='Sektor' viewBox='0 0 ${options.size} ${options.size}'>
       ${this.getCircle()}
@@ -33,8 +35,15 @@ function Sektor(selector, options) {
   this.sector =  this.element.querySelector('.Sektor-sector');
 }
 
+Sektor.prototype.checkAngle = function() {
+  if (this.options.angle > 360) {
+    this.options.angle =  this.options.angle % 360;
+  }
+};
+
 Sektor.prototype.changeAngle = function(angle) {
   this.options.angle = angle;
+  this.checkAngle();
   this.sector.setAttribute('d', this.getSector(true));
 };
 
@@ -53,8 +62,9 @@ Sektor.prototype.step = function(angleOffset, endAngle, time, endTime) {
 };
 
 Sektor.prototype.animateTo = function(angle, time = 300) {
-  const tick = 25;
-  let ticks = Math.floor(time / tick);
+  if (angle > 360) {
+    angle = angle % 360;
+  }
 
   const startTime = new Date().valueOf();
   const endTime = startTime + time;
