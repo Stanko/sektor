@@ -1,7 +1,12 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+exports.Sektor = Sektor;
 function Sektor(selector, options) {
   this.element = document.querySelector(selector);
 
@@ -68,7 +73,7 @@ Sektor.prototype.step = function (angleOffset, endAngle, time, endTime) {
 Sektor.prototype.animateTo = function (angle) {
   var _this2 = this;
 
-  var time = arguments.length <= 1 || arguments[1] === undefined ? 300 : arguments[1];
+  var time = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 300;
 
   if (angle > 360) {
     angle = angle % 360;
@@ -84,7 +89,7 @@ Sektor.prototype.animateTo = function (angle) {
 };
 
 Sektor.prototype.getSector = function () {
-  var returnD = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+  var returnD = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
   var options = this.options;
 

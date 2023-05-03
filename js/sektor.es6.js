@@ -1,4 +1,4 @@
-function Sektor(selector, options) {
+export function Sektor(selector, options) {
   this.element = document.querySelector(selector);
 
   const defaultOptions = {
